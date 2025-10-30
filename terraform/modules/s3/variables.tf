@@ -15,3 +15,15 @@ variable "lifecycle_days" {
   type = number
   default = 30
 }
+
+variable "policy"{
+  type = object({
+    Version = string
+     Statement = list(object({
+       Effect = string
+       Principal = string
+       Action = list(string)
+       Resource = string 
+     }))
+  })
+}
